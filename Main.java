@@ -136,6 +136,7 @@ class PesananPengembalian extends Pesanan implements PrintKwitansi, Pengembalian
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Pesanan Online");
         PesananOnline pesananOnline = new PesananOnline(1, "Glenn", "Lamdingin");
         pesananOnline.tambahProduk(24000, 2);
         pesananOnline.pernyataanDiskon();
@@ -144,12 +145,14 @@ public class Main {
         pesananOnline.print();
         pesananOnline.ship();
         
+        System.out.println("Pesanan di Toko");
         PesananDiToko pesananDiToko = new PesananDiToko(2, "Agil", "Darussalam");
         pesananDiToko.tambahProduk(30000, 3);
         System.out.println("\n\nJumlah harga = Rp " + (int) pesananDiToko.hitungTotal());
         pesananDiToko.print();
         pesananDiToko.ship();
         
+        System.err.println("Pengembalian pesanan");
         PesananPengembalian pesananPengembalian = new PesananPengembalian(3, "Alice Johnson", "Produk cacat");
         pesananPengembalian.tambahProduk(25000, 1);
         System.out.println("\n\njumlah harga pengembalian = Rp " + (int) pesananPengembalian.hitungTotal());
