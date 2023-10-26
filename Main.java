@@ -148,7 +148,6 @@ class PesananDiToko extends Pesanan implements PrintKwitansi, Pengiriman {
 
 class PesananBarangElektronik extends PesananDiToko {
     private String jenisElektronik;
-    // private double totalHarga;
     
     public PesananBarangElektronik(int nomorPesanan, String namaPelanggan, String lokasiToko, String jenisElektronik) {
         super(nomorPesanan, namaPelanggan, lokasiToko);
@@ -157,10 +156,6 @@ class PesananBarangElektronik extends PesananDiToko {
     
     public String getJenisElektronik() {
         return jenisElektronik;
-    }
-
-    public void tambahProduk(double harga, int jumlah) {
-        super.tambahProduk(harga, jumlah);
     }
     
     @Override
@@ -209,6 +204,8 @@ public class Main {
     public static void main(String[] args) {
         DecimalFormat decimalFormat = new DecimalFormat("#,###.00");
 
+        System.out.println("\n======================================================\n");
+
         PesananOnline pesananOnline = new PesananOnline(1, "Glenn", "Lamdingin");
         System.out.println("Pesanan " + pesananOnline.getNomorPesanan() + ": Pembelian Online");
         pesananOnline.tambahProduk(27000, 2);  // Membeli 2 barang online masing-masing seharga Rp27000 per item
@@ -220,31 +217,39 @@ public class Main {
         pesananOnline.print();
         pesananOnline.ship();
         
+        System.out.println("\n======================================================\n");
+
         PesananDiToko pesananDiToko = new PesananDiToko(2, "Agil", "Blang Bintang");
-        System.out.println("\nPesanan " + pesananDiToko.getNomorPesanan() + ": Belanja di toko");
+        System.out.println("Pesanan " + pesananDiToko.getNomorPesanan() + ": Belanja di toko");
         pesananDiToko.tambahProduk(10000, 3);  // Membeli 3 barang di toko seharga Rp10000 per item
         System.out.println("Total harga belanja di toko = Rp " + decimalFormat.format(pesananDiToko.hitungTotal()));
         pesananDiToko.print();
         pesananDiToko.ship();
         
+        System.out.println("\n======================================================\n");
+
         PesananPengembalian pesananPengembalian = new PesananPengembalian(3, "Glenn", "Produk cacat");
-        System.out.println("\nPesanan" + pesananPengembalian.getNomorPesanan() + ": Permintaan Pengembalian");
+        System.out.println("Pesanan" + pesananPengembalian.getNomorPesanan() + ": Permintaan Pengembalian");
         pesananPengembalian.tambahProduk(25000, 1);  // Mengembalikan produk cacat
         System.out.println("Jumlah pengembalian = Rp " + decimalFormat.format(pesananPengembalian.hitungTotal()));
         pesananPengembalian.print();
         pesananPengembalian.returnOrder();
+
+        System.out.println("\n======================================================\n");
         
         PesananBarangElektronik pesananElektronik = new PesananBarangElektronik(4, "Agil", "Ulee Kareng", "Smartphone");
-        System.out.println("\nPesanan " + pesananElektronik.getNomorPesanan() + ": Pembelian " + pesananElektronik.getJenisElektronik());
+        System.out.println("Pesanan " + pesananElektronik.getNomorPesanan() + ": Pembelian " + pesananElektronik.getJenisElektronik());
         System.out.println("Nama Pelanggan: " + pesananElektronik.getNamaPelanggan());
         System.out.println("Lokasi toko: " + pesananElektronik.getLokasiToko());
-        pesananElektronik.tambahProduk(25000, 3);  // Membeli 3 barang elektronik di toko seharga Rp25000 per item
+        pesananElektronik.tambahProduk(3500000, 1);  // Membeli 1 barang elektronik di toko seharga Rp3500000 per item
         System.out.println("Total harga " + pesananElektronik.getJenisElektronik() + "= Rp " + decimalFormat.format(pesananElektronik.hitungTotal()));
         pesananElektronik.print();
         pesananElektronik.ship();
         
+        System.out.println("\n======================================================\n");
+
         PesananMakanan pesananMakanan = new PesananMakanan(5, "Glenn", "Darussalam", "Pizza");
-        System.out.println("\nPesanan " + pesananMakanan.getNomorPesanan() + ": Pembelian " + pesananMakanan.getNamaMakanan());
+        System.out.println("Pesanan " + pesananMakanan.getNomorPesanan() + ": Pembelian " + pesananMakanan.getNamaMakanan());
         pesananMakanan.pernyataanDiskon();
         pesananMakanan.tambahProduk(56000, 3);  // Membeli 3 makanan online seharga Rp56000 per item
         System.out.println("Nama Pelanggan: " + pesananMakanan.getNamaPelanggan());
@@ -255,5 +260,7 @@ public class Main {
         System.out.println("Total harga setelah diskon dan ongkir = Rp " + decimalFormat.format(pesananMakanan.hitungTotal()));
         pesananMakanan.print();
         pesananMakanan.ship();
+
+        System.out.println("\n======================================================\n");
     }
 }
