@@ -238,7 +238,7 @@ public class Main {
         System.out.println("\n======================================================\n");
         
         PesananBarangElektronik pesananElektronik = new PesananBarangElektronik(4, "Agil", "Ulee Kareng", "Smartphone");
-        System.out.println("Pesanan " + pesananElektronik.getNomorPesanan() + ": Pembelian " + pesananElektronik.getJenisElektronik());
+        System.out.println("Pesanan " + pesananElektronik.getNomorPesanan() + ": Pembelian " + pesananElektronik.getJenisElektronik() + " di toko");
         System.out.println("Nama Pelanggan: " + pesananElektronik.getNamaPelanggan());
         System.out.println("Lokasi toko: " + pesananElektronik.getLokasiToko());
         pesananElektronik.tambahProduk(3500000, 1);  // Membeli 1 barang elektronik di toko seharga Rp3500000 per item
@@ -249,7 +249,7 @@ public class Main {
         System.out.println("\n======================================================\n");
 
         PesananMakanan pesananMakanan = new PesananMakanan(5, "Glenn", "Darussalam", "Pizza");
-        System.out.println("Pesanan " + pesananMakanan.getNomorPesanan() + ": Pembelian " + pesananMakanan.getNamaMakanan());
+        System.out.println("Pesanan " + pesananMakanan.getNomorPesanan() + ": Pembelian " + pesananMakanan.getNamaMakanan() + " online");
         pesananMakanan.pernyataanDiskon();
         pesananMakanan.tambahProduk(56000, 3);  // Membeli 3 makanan online seharga Rp56000 per item
         System.out.println("Nama Pelanggan: " + pesananMakanan.getNamaPelanggan());
