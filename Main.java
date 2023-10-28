@@ -1,3 +1,7 @@
+// Anggota :
+// Agil Mughni
+// Glenn Hakim
+
 import java.text.DecimalFormat;
 
 interface PrintKwitansi {
